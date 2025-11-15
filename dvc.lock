@@ -21,14 +21,82 @@ stages:
       size: 115793
     - path: src\data\data_preprocessing.py
       hash: md5
-      md5: e0348b264ee96386a63fd34ce448a2fe
-      size: 1200
+      md5: 24ed5c1569fa7c96386faac110750331
+      size: 1254
     outs:
     - path: data\processed\x_test_process.csv
       hash: md5
-      md5: 73ea0f569914d3bcf712b7b6637531f1
-      size: 21777
+      md5: 43c05724ec3f833beb2bd6f5a3df56d7
+      size: 15236
     - path: data\processed\x_train_process.csv
       hash: md5
-      md5: f68180ff4121768c2fcfc356f3e93744
-      size: 86974
+      md5: 1ca5ed7120ba318f485da63300e26051
+      size: 60964
+  feature_engineering:
+    cmd: python src\features\feature_engineering.py
+    deps:
+    - path: data\processed\x_test_process.csv
+      hash: md5
+      md5: 43c05724ec3f833beb2bd6f5a3df56d7
+      size: 15236
+    - path: data\processed\x_train_process.csv
+      hash: md5
+      md5: 1ca5ed7120ba318f485da63300e26051
+      size: 60964
+    - path: src\features\feature_engineering.py
+      hash: md5
+      md5: b1829999edbc7ba960d712cdb3d64286
+      size: 2968
+    outs:
+    - path: artifacts\model\preprocessor.joblib
+      hash: md5
+      md5: db273d3051db0e7112f8a94747132793
+      size: 26278
+    - path: data\interim\x_test_final.csv
+      hash: md5
+      md5: f485e4d4116f840199d4c67936a2ad0b
+      size: 2521369
+    - path: data\interim\x_train_final.csv
+      hash: md5
+      md5: 626df43172563611f35f8027677397cf
+      size: 9979069
+    - path: data\interim\y_test.csv
+      hash: md5
+      md5: eb076cbc6661efff1948f1165ff44c91
+      size: 1215
+    - path: data\interim\y_train.csv
+      hash: md5
+      md5: 214efb031703aa02909d78ceae968dcd
+      size: 4815
+  model_building:
+    cmd: python src\models\model_building.py
+    deps:
+    - path: artifacts\model\preprocessor.joblib
+      hash: md5
+      md5: db273d3051db0e7112f8a94747132793
+      size: 26278
+    - path: data\interim\x_test_final.csv
+      hash: md5
+      md5: f485e4d4116f840199d4c67936a2ad0b
+      size: 2521369
+    - path: data\interim\x_train_final.csv
+      hash: md5
+      md5: 626df43172563611f35f8027677397cf
+      size: 9979069
+    - path: data\interim\y_test.csv
+      hash: md5
+      md5: eb076cbc6661efff1948f1165ff44c91
+      size: 1215
+    - path: data\interim\y_train.csv
+      hash: md5
+      md5: 214efb031703aa02909d78ceae968dcd
+      size: 4815
+    - path: src\models\model_building.py
+      hash: md5
+      md5: 70400e38f33d5d6152db8292130a94a6
+      size: 977
+    outs:
+    - path: artifacts\model\model.joblib
+      hash: md5
+      md5: f92a8d788fc6c193d949a72be3664a7a
+      size: 808457

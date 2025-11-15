@@ -1,0 +1,4 @@
+[core]
+    remote = temp
+['remote "temp"']
+    url = C:\Users\mdmuz\AppData\Local\Temp
