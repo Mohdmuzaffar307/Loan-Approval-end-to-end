@@ -23,5 +23,5 @@ jobs:
           pip install flake8
       - name: run flake8
         run: |
-          flake8 app\app.py
+          flake8 app.py
           
