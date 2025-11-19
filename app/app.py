@@ -30,8 +30,6 @@ value_predict = pd.DataFrame(
     }
 )
 
-
-# print(value_predict.head(1))
 predict_btn = st.sidebar.button('Predict')
 
 if predict_btn:
