@@ -32,7 +32,7 @@ value_predict = pd.DataFrame(
 predict_btn = st.sidebar.button('Predict')
 
 if predict_btn:
-    value_predict=preprocessor.transform(value_predict)
+    value_predict = preprocessor.transform(value_predict)
     print(value_predict.head(1))
     value = model.predict(value_predict)
     st.write(value)
