@@ -13,11 +13,11 @@ st.title('Loan Approval App')
 # df=pd.read_csv(r'E:\MLOPS-Projects\loan-approval-end-to-end\data\raw\raw_df.csv')
 city = st.sidebar.text_input('Enter City', "")
 
-income = st.sidebar.number_input("Enter income", value=0)
-credit_score = st.sidebar.number_input("Creadit Score", value=0)
-loan_amount = st.sidebar.number_input("loan_amount", value=0)
-years_employed = st.sidebar.number_input("years_employed", value=0)
-points = st.sidebar.number_input("point", value=0)
+income = st.sidebar.number_input("Enter income", value = 0)
+credit_score = st.sidebar.number_input("Creadit Score", value = 0)
+loan_amount = st.sidebar.number_input("loan_amount", value = 0)
+years_employed = st.sidebar.number_input("years_employed", value = 0)
+points = st.sidebar.number_input("point", value = 0)
 
 value_predict = pd.DataFrame(
     {
