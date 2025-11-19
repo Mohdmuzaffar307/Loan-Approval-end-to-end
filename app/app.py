@@ -10,7 +10,6 @@ preprocessor = joblib.load(open(r"artifacts\model\preprocessor.joblib", "rb"))
 model = joblib.load(open(r"artifacts\model\model.joblib", "rb"))
 
 st.title('Loan Approval App')
-# df=pd.read_csv(r'E:\MLOPS-Projects\loan-approval-end-to-end\data\raw\raw_df.csv')
 city = st.sidebar.text_input('Enter City', "")
 
 income = st.sidebar.number_input("Enter income", value=0)
