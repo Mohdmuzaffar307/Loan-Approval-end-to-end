@@ -8,6 +8,8 @@ on:
 jobs:
   build-test:
     runs-on: ubuntu-latest
+    env:
+      DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
 
     steps:
       - name: Checkout code
@@ -18,10 +20,11 @@ jobs:
         with:
           python-version: "3.9"
 
-      - name: install flake8
+      - name: install requirements.txt
         run: |
-          pip install flake8
-      - name: run flake8
+          pip install -r requirements.txt
+      - name: run dvc repro
         run: |
-          flake8 app/app.py
+          dvc repro
+          
           

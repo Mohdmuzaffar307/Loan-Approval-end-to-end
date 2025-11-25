@@ -36,3 +36,17 @@ stages:
     - src\models\model_building.py
     outs:
     - artifacts\model\model.joblib
+  model_eval:
+    cmd: python src\models\model_eval.py
+    deps:
+    - artifacts\model\model.joblib
+    - src\models\model_eval.py
+    outs:
+    - reports\experiment_info.json
+    metrics:
+    - reports\metrics.json
+  regester_model:
+    cmd: python src\models\register_model.py
+    deps:
+    - reports\experiment_info.json
+    - src\models\register_model.py
