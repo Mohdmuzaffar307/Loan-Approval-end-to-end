@@ -1,0 +1,15 @@
+creation_timestamp: 1764352426422
+current_stage: Staging
+deployment_job_state: null
+description: ''
+last_updated_timestamp: 1764352427643
+model_id: m-239785897f6e4ae3b212f606722ccc87
+name: my_model
+run_id: 6cc1c1ecf1484b9bb7dd57f92b95c5d8
+run_link: ''
+source: models:/m-239785897f6e4ae3b212f606722ccc87
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/613871545289015296/models/m-239785897f6e4ae3b212f606722ccc87/artifacts
+user_id: null
+version: 9

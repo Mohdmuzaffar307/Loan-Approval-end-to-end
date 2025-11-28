@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/6cc1c1ecf1484b9bb7dd57f92b95c5d8/artifacts
+end_time: 1764352417474
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: 6cc1c1ecf1484b9bb7dd57f92b95c5d8
+run_name: magnificent-wolf-644
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764352385451
+status: 3
+tags: []
+user_id: mdmuz

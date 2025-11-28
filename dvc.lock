@@ -98,23 +98,23 @@ stages:
     outs:
     - path: artifacts/model/model.joblib
       hash: md5
-      md5: b6a90060101649daffbe0a2a21a36b10
-      size: 709577
+      md5: a80f7435c6ee53a2ef7c53d97a87e1f7
+      size: 604137
   model_eval:
     cmd: python src/models/model_eval.py
     deps:
     - path: artifacts/model/model.joblib
       hash: md5
-      md5: b6a90060101649daffbe0a2a21a36b10
-      size: 709577
+      md5: a80f7435c6ee53a2ef7c53d97a87e1f7
+      size: 604137
     - path: src/models/model_eval.py
       hash: md5
-      md5: 198fae7da18241a8ccfacd7cb606c2b7
-      size: 4185
+      md5: 28f90f1e52c233c5fbd6cfd2033f8bc1
+      size: 4187
     outs:
     - path: reports/experiment_info.json
       hash: md5
-      md5: 9476be5497fbc64003d15f023d1b7225
+      md5: 183d635daeb9b208fa425467cc5ca6c6
       size: 87
     - path: reports/metrics.json
       hash: md5
@@ -125,9 +125,9 @@ stages:
     deps:
     - path: reports/experiment_info.json
       hash: md5
-      md5: 9476be5497fbc64003d15f023d1b7225
+      md5: 183d635daeb9b208fa425467cc5ca6c6
       size: 87
     - path: src/models/register_model.py
       hash: md5
-      md5: 7bca428f034096fab2d6a1e0319a61d3
-      size: 1895
+      md5: 587af3f2cd4eb1d24ce6b06c9df2dbb2
+      size: 1887
