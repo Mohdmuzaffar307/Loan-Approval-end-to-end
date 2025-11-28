@@ -32,6 +32,10 @@ jobs:
           pip install -r requirements.txt
       - name: run dvc repro
         if: success()
+      - name: Pull DVC data
+
+        run: |
+          dvc pull
         run: |
           dvc repro
           
