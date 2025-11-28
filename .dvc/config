@@ -1,6 +1,6 @@
 [core]
-    remote = temp
+    remote = my_remote
 ['remote "temp"']
     url = C:\Users\mdmuz\AppData\Local\Temp
-['remote "temp_remote"']
-    url = C:\Users\mdmuz\AppData\Local\Temp
+['remote "my_remote"']
+    url = E:\dvc_storage
