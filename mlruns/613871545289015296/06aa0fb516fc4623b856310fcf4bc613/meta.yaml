@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/06aa0fb516fc4623b856310fcf4bc613/artifacts
+end_time: 1764179920082
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: 06aa0fb516fc4623b856310fcf4bc613
+run_name: merciful-stoat-227
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764179911377
+status: 4
+tags: []
+user_id: mdmuz

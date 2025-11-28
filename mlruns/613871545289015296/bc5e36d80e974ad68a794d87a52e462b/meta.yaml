@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/bc5e36d80e974ad68a794d87a52e462b/artifacts
+end_time: 1764176924300
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: bc5e36d80e974ad68a794d87a52e462b
+run_name: dapper-ram-243
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764176918273
+status: 4
+tags: []
+user_id: mdmuz

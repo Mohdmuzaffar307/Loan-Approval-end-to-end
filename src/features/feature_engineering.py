@@ -4,6 +4,7 @@ from sklearn.preprocessing import OneHotEncoder,Normalizer,StandardScaler
 from sklearn.compose import ColumnTransformer
 import joblib
 import os
+from pathlib import Path
 
 def load_data(x_train_url :str,x_test_url :str)->tuple[pd.DataFrame,pd.DataFrame,pd.DataFrame,pd.DataFrame]:
     x_train=pd.read_csv(x_train_url)
@@ -28,8 +29,9 @@ def normalization(x_train:pd.DataFrame,x_test:pd.DataFrame)->tuple[pd.DataFrame,
     preprocessor.set_output(transform="pandas")
     
     preprocessor.fit(x_train)
-    model_path=r"artifacts\model\preprocessor.joblib"
-    os.makedirs(os.path.dirname(model_path),exist_ok=True)
+    model_path=Path("artifacts/model/preprocessor.joblib")
+    model_path.parent.mkdir(parents=True,exist_ok=True)
+    # os.makedirs(os.path.dirname(model_path),exist_ok=True)
     joblib.dump(preprocessor, open(model_path,'wb'))
     
     x_train_transformed=preprocessor.transform(x_train)
@@ -40,10 +42,17 @@ def normalization(x_train:pd.DataFrame,x_test:pd.DataFrame)->tuple[pd.DataFrame,
 
 
 def save_data(x_train_path:str,x_test_path:str,x_train:pd.DataFrame,x_test:pd.DataFrame,y_train:pd.DataFrame,y_train_path:str,y_test_path:str,y_test:pd.DataFrame)-> None:
-    os.makedirs(os.path.dirname(x_train_path),exist_ok=True)
-    os.makedirs(os.path.dirname(x_test_path),exist_ok=True)
-    os.makedirs(os.path.dirname(y_train_path),exist_ok=True)
-    os.makedirs(os.path.dirname(y_test_path),exist_ok=True)
+    # os.makedirs(os.path.dirname(x_train_path),exist_ok=True)
+    x_train_path.parent.mkdir(parents=True,exist_ok=True)
+    
+    # os.makedirs(os.path.dirname(x_test_path),exist_ok=True)
+    x_test_path.parent.mkdir(parents=True,exist_ok=True)
+    
+    # os.makedirs(os.path.dirname(y_train_path),exist_ok=True)
+    y_train_path.parent.mkdir(parents=True,exist_ok=True)
+    
+    # os.makedirs(os.path.dirname(y_test_path),exist_ok=True)
+    y_test_path.parent.mkdir(parents=True,exist_ok=True)
     
     x_train.to_csv(x_train_path,index=False)
     x_test.to_csv(x_test_path,index=False)
@@ -53,16 +62,16 @@ def save_data(x_train_path:str,x_test_path:str,x_train:pd.DataFrame,x_test:pd.Da
     
     
 def main():
-    x_train_url=r"data\processed\x_train_process.csv"
-    x_test_url=r"data\processed\x_test_process.csv"
-    y_train_url=r"data\interim\y_train.csv"
-    y_test_url=r"data\interim\y_test.csv"
+    x_train_url=Path("data/processed/x_train_process.csv")
+    x_test_url=Path("data/processed/x_test_process.csv")
+    y_train_url=Path("data/interim/y_train.csv")
+    y_test_url=Path("data/interim/y_test.csv")
     x_train,x_test,y_train,y_test=load_data(x_train_url=x_train_url,x_test_url=x_test_url)
     
     x_train_final,x_test_final=normalization(x_train=x_train,x_test=x_test)
     
-    x_train_final_path=r"data\interim\x_train_final.csv"
-    x_test_final_path=r"data\interim\x_test_final.csv"
+    x_train_final_path=Path("data/interim/x_train_final.csv")
+    x_test_final_path=Path("data/interim/x_test_final.csv")
     save_data(x_train_path=x_train_final_path,x_test_path=x_test_final_path,y_train_path=y_train_url,y_test_path=y_test_url,x_train=x_train_final,x_test=x_test_final,y_train=y_train,y_test=y_test)
     
     

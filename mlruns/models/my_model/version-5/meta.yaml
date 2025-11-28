@@ -1,0 +1,15 @@
+creation_timestamp: 1764178471172
+current_stage: Staging
+deployment_job_state: null
+description: ''
+last_updated_timestamp: 1764178471538
+model_id: m-fda214f86bb342719c07425716f9ab14
+name: my_model
+run_id: b53725fe9b7c495b83bfb124c9c37d37
+run_link: ''
+source: models:/m-fda214f86bb342719c07425716f9ab14
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/613871545289015296/models/m-fda214f86bb342719c07425716f9ab14/artifacts
+user_id: null
+version: 5

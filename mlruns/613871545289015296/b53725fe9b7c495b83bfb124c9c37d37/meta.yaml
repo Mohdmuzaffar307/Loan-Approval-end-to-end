@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/b53725fe9b7c495b83bfb124c9c37d37/artifacts
+end_time: 1764178465458
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: b53725fe9b7c495b83bfb124c9c37d37
+run_name: puzzled-lark-539
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764178455034
+status: 3
+tags: []
+user_id: mdmuz

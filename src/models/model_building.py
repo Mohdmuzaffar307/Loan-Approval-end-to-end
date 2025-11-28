@@ -3,6 +3,7 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 import os
+from pathlib import Path
 
 def load_data(x_train_url:str,y_train_url:str)->tuple[pd.DataFrame,pd.DataFrame]:
     x_train=pd.read_csv(x_train_url)
@@ -12,14 +13,16 @@ def load_data(x_train_url:str,y_train_url:str)->tuple[pd.DataFrame,pd.DataFrame]
 def model_building(x_train:pd.DataFrame,y_train:pd.DataFrame):
     model=RandomForestClassifier(n_estimators=100,max_depth=20)
     model.fit(x_train,y_train)
-    model_path=r"artifacts\model\model.joblib"
-    os.makedirs(os.path.dirname(model_path),exist_ok=True)
+    model_path=Path("artifacts/model/model.joblib")
+    model_path.parent.mkdir(parents=True,exist_ok=True)
+    
+    # os.makedirs(os.path.dirname(model_path),exist_ok=True)
     joblib.dump(model,open(model_path,'wb'))
     print('model dumped')
     
 def main():
-    x_train_url=r"data\interim\x_train_final.csv"
-    y_train_url=r"data\interim\y_train.csv"
+    x_train_url=Path("data/interim/x_train_final.csv")
+    y_train_url=Path("data/interim/y_train.csv")
     x_train,y_train=load_data(x_train_url=x_train_url,y_train_url=y_train_url)
     print('dataset loaded')
     

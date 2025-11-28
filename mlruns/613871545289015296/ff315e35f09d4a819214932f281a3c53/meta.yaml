@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/ff315e35f09d4a819214932f281a3c53/artifacts
+end_time: 1764093836439
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: ff315e35f09d4a819214932f281a3c53
+run_name: auspicious-pug-421
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764093821362
+status: 3
+tags: []
+user_id: mdmuz

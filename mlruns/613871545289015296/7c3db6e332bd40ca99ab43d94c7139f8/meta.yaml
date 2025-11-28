@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/7c3db6e332bd40ca99ab43d94c7139f8/artifacts
+end_time: 1764177238848
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: 7c3db6e332bd40ca99ab43d94c7139f8
+run_name: caring-dog-28
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764177211228
+status: 3
+tags: []
+user_id: mdmuz

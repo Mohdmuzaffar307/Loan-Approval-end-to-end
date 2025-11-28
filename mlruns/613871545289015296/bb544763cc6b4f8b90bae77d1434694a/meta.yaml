@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/bb544763cc6b4f8b90bae77d1434694a/artifacts
+end_time: 1764179677073
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: bb544763cc6b4f8b90bae77d1434694a
+run_name: omniscient-dog-509
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764179676504
+status: 4
+tags: []
+user_id: mdmuz
