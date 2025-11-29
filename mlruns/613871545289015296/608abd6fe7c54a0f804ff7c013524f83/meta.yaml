@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/608abd6fe7c54a0f804ff7c013524f83/artifacts
+end_time: 1764354240024
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: 608abd6fe7c54a0f804ff7c013524f83
+run_name: blushing-snake-169
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764354227224
+status: 3
+tags: []
+user_id: mdmuz

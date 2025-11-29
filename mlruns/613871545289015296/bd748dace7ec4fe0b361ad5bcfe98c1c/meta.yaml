@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/bd748dace7ec4fe0b361ad5bcfe98c1c/artifacts
+end_time: 1764354671248
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: bd748dace7ec4fe0b361ad5bcfe98c1c
+run_name: fun-sheep-841
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764354663343
+status: 3
+tags: []
+user_id: mdmuz
