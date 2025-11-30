@@ -26,11 +26,12 @@ from pathlib import Path
 # # Set up MLflow tracking URI
 # mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
+mlflow.set_tracking_uri("http://127.0.0.1:5000/")
 
-def load_model(model_path :str):
+def load_model(model_path :Path):
     with open(model_path, 'rb') as file:
             model = joblib.load(file)
+            
     return model
 
 
