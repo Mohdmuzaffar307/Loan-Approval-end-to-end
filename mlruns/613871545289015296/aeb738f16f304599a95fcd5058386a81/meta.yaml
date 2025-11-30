@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/aeb738f16f304599a95fcd5058386a81/artifacts
+end_time: 1764488880231
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: aeb738f16f304599a95fcd5058386a81
+run_name: respected-fowl-269
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764488871829
+status: 3
+tags: []
+user_id: mdmuz

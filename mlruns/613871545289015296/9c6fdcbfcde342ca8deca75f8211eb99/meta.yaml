@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/9c6fdcbfcde342ca8deca75f8211eb99/artifacts
+end_time: 1764487185916
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: 9c6fdcbfcde342ca8deca75f8211eb99
+run_name: zealous-squid-829
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764487174044
+status: 3
+tags: []
+user_id: mdmuz

@@ -41,7 +41,7 @@ def normalization(x_train:pd.DataFrame,x_test:pd.DataFrame)->tuple[pd.DataFrame,
     return x_train_transformed,x_test_transformed
 
 
-def save_data(x_train_path:str,x_test_path:str,x_train:pd.DataFrame,x_test:pd.DataFrame,y_train:pd.DataFrame,y_train_path:str,y_test_path:str,y_test:pd.DataFrame)-> None:
+def save_data(x_train_path:Path,x_test_path:Path,x_train:pd.DataFrame,x_test:pd.DataFrame,y_train:pd.DataFrame,y_train_path:Path,y_test_path:str,y_test:pd.DataFrame)-> None:
     # os.makedirs(os.path.dirname(x_train_path),exist_ok=True)
     x_train_path.parent.mkdir(parents=True,exist_ok=True)
     
