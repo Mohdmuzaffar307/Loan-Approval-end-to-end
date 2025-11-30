@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/419284e934c449f895aa5619b66a2692/artifacts
+end_time: 1764489382451
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: 419284e934c449f895aa5619b66a2692
+run_name: nosy-chimp-452
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764489370451
+status: 3
+tags: []
+user_id: mdmuz
