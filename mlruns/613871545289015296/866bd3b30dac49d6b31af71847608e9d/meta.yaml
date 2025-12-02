@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/866bd3b30dac49d6b31af71847608e9d/artifacts
+end_time: 1764693435223
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: 866bd3b30dac49d6b31af71847608e9d
+run_name: legendary-doe-780
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764693401952
+status: 3
+tags: []
+user_id: mdmuz
