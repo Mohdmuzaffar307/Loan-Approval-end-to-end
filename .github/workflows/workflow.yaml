@@ -30,6 +30,11 @@ jobs:
       - name: install requirements.txt
         run: |
           pip install -r requirements.txt
+      - name: Setup DVC remote auth
+        run: |
+          dvc remote modify origin auth basic
+          dvc remote modify origin user ${{ secrets.DAGSHUB_USERNAME }}
+          dvc remote modify origin password ${{ secrets.DAGSHUB_TOKEN }}
       - name: Pull DVC data
         run: |
           dvc pull

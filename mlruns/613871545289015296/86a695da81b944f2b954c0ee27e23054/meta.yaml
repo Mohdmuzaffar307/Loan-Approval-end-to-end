@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/86a695da81b944f2b954c0ee27e23054/artifacts
+end_time: 1764690815100
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: 86a695da81b944f2b954c0ee27e23054
+run_name: serious-shoat-896
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764690804717
+status: 3
+tags: []
+user_id: mdmuz
