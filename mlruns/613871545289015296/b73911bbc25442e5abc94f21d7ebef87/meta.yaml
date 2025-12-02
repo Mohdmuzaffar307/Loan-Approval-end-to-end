@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/b73911bbc25442e5abc94f21d7ebef87/artifacts
+end_time: 1764610286072
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: b73911bbc25442e5abc94f21d7ebef87
+run_name: ambitious-crow-844
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764610262837
+status: 3
+tags: []
+user_id: mdmuz

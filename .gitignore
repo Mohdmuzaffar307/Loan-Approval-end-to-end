@@ -90,3 +90,5 @@ target/
 myvenv/
 data/
 artifacts/
+secret/
+.dvc/config.local

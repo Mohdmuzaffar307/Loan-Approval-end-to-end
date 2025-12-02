@@ -11,7 +11,7 @@ def load_data(x_train_url:str,y_train_url:str)->tuple[pd.DataFrame,pd.DataFrame]
     return x_train,y_train
     
 def model_building(x_train:pd.DataFrame,y_train:pd.DataFrame):
-    model=RandomForestClassifier(n_estimators=150,max_depth=20)
+    model=RandomForestClassifier(n_estimators=200,max_depth=20)
     model.fit(x_train,y_train)
     model_path=Path("artifacts/model/model.joblib")
     model_path.parent.mkdir(parents=True,exist_ok=True)
