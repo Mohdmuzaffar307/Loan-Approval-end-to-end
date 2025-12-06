@@ -8,8 +8,13 @@ import json
 from pathlib import Path
 
 
-# dagshub.init(repo_owner='Mohdmuzaffar307', repo_name='Loan-Approval-end-to-end', mlflow=True)
-# mlflow.set_tracking_uri("https://dagshub.com/Mohdmuzaffar307/Loan-Approval-end-to-end.mlflow")
+dagshub.init(
+    repo_owner='Mohdmuzaffar307',
+    repo_name='Loan-Approval-end-to-end',
+    mlflow=True
+)
+mlflow.set_tracking_uri("https://dagshub.com/Mohdmuzaffar307/Loan-Approval-end-to-end.mlflow")
+
 
 
 # dagshub_token = os.getenv("DAGSHUB_PAT")
@@ -21,12 +26,19 @@ from pathlib import Path
 
 # dagshub_url = "https://dagshub.com"
 # repo_owner = "Mohdmuzaffar307"
-# repo_name = "Loan-Approval-end-to-end"
+# repo_name = "Loan-Approval-end-to-end"clear
+
 
 # # Set up MLflow tracking URI
 # mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 
-mlflow.set_tracking_uri("http://127.0.0.1:5000/")
+# mlflow.set_tracking_uri("http://127.0.0.1:5000/")
+
+
+
+# Increase timeout for all httpx requests (global patch)
+
+
 
 def load_model(model_path :Path):
     with open(model_path, 'rb') as file:

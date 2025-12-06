@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/613871545289015296/50e6f44abecf4943a0c02ddd6ff9aaa5/artifacts
+end_time: 1764780996569
+entry_point_name: ''
+experiment_id: '613871545289015296'
+lifecycle_stage: active
+run_id: 50e6f44abecf4943a0c02ddd6ff9aaa5
+run_name: tasteful-ape-636
+run_uuid: 50e6f44abecf4943a0c02ddd6ff9aaa5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764780973408
+status: 3
+tags: []
+user_id: mdmuz
