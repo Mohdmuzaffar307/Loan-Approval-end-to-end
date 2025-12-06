@@ -2,3 +2,5 @@
     remote = dagshub
 ['remote "dagshub"']
     url = https://dagshub.com/Mohdmuzaffar307/Loan-Approval-end-to-end.dvc
+    auth = basic
+    user = Mohdmuzaffar307

@@ -41,11 +41,13 @@ stages:
     deps:
     - artifacts/model/model.joblib
     - src/models/model_eval.py
+    - data/interim/y_test.csv
+    - data/interim/x_test_final.csv
     outs:
     - reports/experiment_info.json
     metrics:
     - reports/metrics.json
-  regester_model:
+  register_model:
     cmd: python src/models/register_model.py
     deps:
     - reports/experiment_info.json

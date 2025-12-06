@@ -98,15 +98,23 @@ stages:
     outs:
     - path: artifacts/model/model.joblib
       hash: md5
-      md5: 84713aebdff9c3adb28c29fdf61b6bce
-      size: 1271817
+      md5: 0feacf3c7c4b301da01d7c297259511c
+      size: 1189737
   model_eval:
     cmd: python src/models/model_eval.py
     deps:
     - path: artifacts/model/model.joblib
       hash: md5
-      md5: 84713aebdff9c3adb28c29fdf61b6bce
-      size: 1271817
+      md5: 0feacf3c7c4b301da01d7c297259511c
+      size: 1189737
+    - path: data/interim/x_test_final.csv
+      hash: md5
+      md5: f485e4d4116f840199d4c67936a2ad0b
+      size: 2521369
+    - path: data/interim/y_test.csv
+      hash: md5
+      md5: eb076cbc6661efff1948f1165ff44c91
+      size: 1215
     - path: src/models/model_eval.py
       hash: md5
       md5: 680005839fa35f0a0895108383119d3a
@@ -114,18 +122,18 @@ stages:
     outs:
     - path: reports/experiment_info.json
       hash: md5
-      md5: 320457a740b5593719c5945da1ff484d
+      md5: e2d40fe0e603e88de6d929678c17d1a1
       size: 87
     - path: reports/metrics.json
       hash: md5
       md5: 52f5f1f9905187bcb67452e263afc92d
       size: 90
-  regester_model:
+  register_model:
     cmd: python src/models/register_model.py
     deps:
     - path: reports/experiment_info.json
       hash: md5
-      md5: 320457a740b5593719c5945da1ff484d
+      md5: e2d40fe0e603e88de6d929678c17d1a1
       size: 87
     - path: src/models/register_model.py
       hash: md5
