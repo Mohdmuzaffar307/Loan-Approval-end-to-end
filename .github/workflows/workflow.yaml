@@ -32,7 +32,7 @@ jobs:
           pip install -r requirements.txt
       - name: Setup DVC remote auth
         run: |
-          dvc remote modify origin auth basic
+          dvc remote modify dagshub auth basic
           dvc remote modify origin user ${{ secrets.MohdMuzaffar307 }}
           dvc remote modify origin password ${{ secrets.c19a2ed45447bf03f14223ed7c5bb590e70eaf4c }}
       - name: Pull DVC data
