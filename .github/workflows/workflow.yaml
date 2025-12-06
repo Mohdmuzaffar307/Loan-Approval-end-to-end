@@ -37,7 +37,7 @@ jobs:
           dvc remote modify dagshub password ${{ secrets.DAGSHUB_TOKEN }}
       - name: Pull DVC data
         run: |
-          dvc pull
+          dvc pull --force
       - name: run dvc repro
         run: |
           dvc repro
