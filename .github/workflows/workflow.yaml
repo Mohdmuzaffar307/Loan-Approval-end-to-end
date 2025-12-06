@@ -33,8 +33,8 @@ jobs:
       - name: Setup DVC remote auth
         run: |
           dvc remote modify dagshub auth basic
-          dvc remote modify dagshub user ${{ secrets.MohdMuzaffar307 }}
-          dvc remote modify dagshub password ${{ secrets.c19a2ed45447bf03f14223ed7c5bb590e70eaf4c }}
+          dvc remote modify dagshub user ${{ secrets.DAGSHUB_USERNAME }}
+          dvc remote modify dagshub password ${{ secrets.DAGSHUB_TOKEN }}
       - name: Pull DVC data
         run: |
           dvc pull
