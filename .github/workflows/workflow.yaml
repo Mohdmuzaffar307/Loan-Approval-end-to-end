@@ -9,6 +9,8 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     env:
+      # DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
+      DAGSHUB_USERNAME: ${{ secrets.DAGSHUB_USERNAME }}
       DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
 
     steps:
