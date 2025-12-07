@@ -17,12 +17,19 @@ from pathlib import Path
 
 
 
-dagshub_token = os.getenv("DAGSHUB_PAT")
-if not dagshub_token:
-    raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
+import os
 
-os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
-# os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+dagshub_username = os.getenv("DAGSHUB_USERNAME")
+dagshub_token = os.getenv("DAGSHUB_TOKEN")
+
+if not dagshub_username or not dagshub_token:
+    raise EnvironmentError(
+        "DAGSHUB_USERNAME or DAGSHUB_TOKEN environment variable is not set"
+    )
+
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_username
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+
 
 dagshub_url = "https://dagshub.com"
 repo_owner = "Mohdmuzaffar307"
