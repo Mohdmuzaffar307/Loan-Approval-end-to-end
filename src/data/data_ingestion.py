@@ -4,8 +4,8 @@ from pathlib import Path
 import kagglehub
 
 def load_data()->pd.DataFrame:
-    path = kagglehub.dataset_download("architsharma01/loan-approval-prediction-dataset")
-    df = pd.read_csv(f"{path}/loan_approval_dataset.csv")
+    path = kagglehub.dataset_download("anishdevedward/loan-approval-dataset")
+    df = pd.read_csv(f"{path}/loan_approval.csv")
     return df
 
 def save_data(path : Path, df : pd.DataFrame)->None:
