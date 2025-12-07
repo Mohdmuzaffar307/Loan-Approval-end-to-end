@@ -1,9 +1,11 @@
 import numpy as np
 import pandas as pd
 from pathlib import Path
+import kagglehub
 
-def load_data(url:str)->pd.DataFrame:
-    df=pd.read_csv(url)
+def load_data()->pd.DataFrame:
+    path = kagglehub.dataset_download("architsharma01/loan-approval-prediction-dataset")
+    df = pd.read_csv(f"{path}/loan_approval_dataset.csv")
     return df
 
 def save_data(path : Path, df : pd.DataFrame)->None:
@@ -12,8 +14,8 @@ def save_data(path : Path, df : pd.DataFrame)->None:
     
     
 def main():
-    url=r"C:/Users/mdmuz/.cache/kagglehub/datasets/anishdevedward/loan-approval-dataset\versions/1/loan_approval.csv"
-    df=load_data(url)
+    
+    df=load_data()
     path= Path("data/raw/raw_df.csv")
     save_data(path,df)
     
