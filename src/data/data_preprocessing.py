@@ -3,8 +3,14 @@ import pandas as pd
 import os
 from pathlib import Path
 from sklearn.model_selection import train_test_split
+import yaml
 
+with open('params.yaml','r')as file:
+    params = yaml.safe_load(file)
+    test_size =params['data_ingestion']['test_size']
+    
 
+    
 def load_data(path : str)->pd.DataFrame:
     df=pd.read_csv(path)
     return df
@@ -13,7 +19,7 @@ def data_preprocessing(df:pd.DataFrame)->tuple[pd.DataFrame,pd.DataFrame]:
     df=df.drop(columns='name')
     df['points']=df['points'].astype('int32')
     df['loan_approved']=df['loan_approved'].map({True:1,False:0})
-    x_train,x_test=train_test_split(df,random_state=42,test_size=0.2)
+    x_train,x_test=train_test_split(df,random_state=42,test_size=test_size)
     return x_train ,x_test
 
 def save_data(x_test_url:Path,x_train_url:Path,x_train:pd.DataFrame,x_test:pd.DataFrame)->None:
