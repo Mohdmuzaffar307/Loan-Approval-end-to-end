@@ -44,6 +44,9 @@ jobs:
         run: |
           dvc repro
       - name: run flask app
+        env:
+          DAGSHUB_USERNAME: ${{ secrets.DAGSHUB_USERNAME }}
+          DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
         run: |
           streamlit run app/app.py
           
