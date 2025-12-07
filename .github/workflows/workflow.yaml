@@ -43,5 +43,7 @@ jobs:
       - name: run dvc repro
         run: |
           dvc repro
-          
+      - name: run flask app
+        run: |
+          streamlit run app/app.py
           
