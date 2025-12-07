@@ -8,29 +8,28 @@ import json
 from pathlib import Path
 
 
-dagshub.init(
-    repo_owner='Mohdmuzaffar307',
-    repo_name='Loan-Approval-end-to-end',
-    mlflow=True
-)
-mlflow.set_tracking_uri("https://dagshub.com/Mohdmuzaffar307/Loan-Approval-end-to-end.mlflow")
+# dagshub.init(
+#     repo_owner='Mohdmuzaffar307',
+#     repo_name='Loan-Approval-end-to-end',
+#     mlflow=True
+# )
+# mlflow.set_tracking_uri("https://dagshub.com/Mohdmuzaffar307/Loan-Approval-end-to-end.mlflow")
 
 
 
-# dagshub_token = os.getenv("DAGSHUB_PAT")
-# if not dagshub_token:
-#     raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
+dagshub_token = os.getenv("DAGSHUB_PAT")
+if not dagshub_token:
+    raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
 
-# os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
-# # os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+# os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
-# dagshub_url = "https://dagshub.com"
-# repo_owner = "Mohdmuzaffar307"
-# repo_name = "Loan-Approval-end-to-end"clear
+dagshub_url = "https://dagshub.com"
+repo_owner = "Mohdmuzaffar307"
+repo_name = "Loan-Approval-end-to-end"
 
-
-# # Set up MLflow tracking URI
-# mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
+# Set up MLflow tracking URI
+mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 
 # mlflow.set_tracking_uri("http://127.0.0.1:5000/")
 
