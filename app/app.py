@@ -7,6 +7,8 @@ import json
 import os
 from dotenv import load_dotenv
 load_dotenv()
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+REPORT_PATH = os.path.join(BASE_DIR, "reports", "experiment_info.json")
 
 
 
@@ -29,53 +31,11 @@ repo_name = "Loan-Approval-end-to-end"
 # Set up MLflow tracking URI
 mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 
-# def load_experiment_info(path="reports/experiment_info.json"):
-#     with open(path, "r") as file:
-#         data = json.load(file)
-    
-#     run_id = data.get("run_id")
-#     model_path = data.get("model_path")
-#     return run_id, model_path
-
-
-# # Load model as a PyFuncModel.
-
-# def get_latest_model_version(model_name):
-#     client = mlflow.MlflowClient()
-#     latest_version = client.get_latest_versions(model_name, stages=["Production"])
-#     if not latest_version:
-#         latest_version = client.get_latest_versions(model_name, stages=["None"])
-#     return latest_version[0].version if latest_version else None
-
-# model_name = "my_model"
-# model_version = get_latest_model_version(model_name)
-
-# model_uri = f'models:/{model_name}/{model_version}'
-# model = mlflow.pyfunc.load_model(model_uri)
-
-
-# runn_id,model_path = load_experiment_info()
-# print(runn_id,model_path)
-
-# preprocessor_path = mlflow.artifacts.download_artifacts(
-#     # ran_id=load_experiment_info()
-#     run_id=runn_id,
-#     artifact_path="preprocessor/preprocessor.joblib"
-# )
-# preprocessor = joblib.load(preprocessor_path)
-
-
-#nd way
-
-import streamlit as st
-import mlflow
-import joblib
-import json
 
 @st.cache_resource
 def load_model_and_preprocessor():
     # Load experiment info
-    with open("reports/experiment_info.json") as file:
+    with open(REPORT_PATH) as file:
         data = json.load(file)
 
     run_id = data["run_id"]
