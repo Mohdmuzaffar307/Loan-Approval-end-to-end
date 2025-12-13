@@ -20,7 +20,7 @@ from pathlib import Path
 import os
 
 dagshub_username = os.getenv("DAGSHUB_USERNAME")
-dagshub_token = os.getenv("DAGSHUB_PAT")
+dagshub_token = os.getenv("DAGSHUB_TOKEN")
 
 if not dagshub_username or not dagshub_token:
     raise EnvironmentError(
