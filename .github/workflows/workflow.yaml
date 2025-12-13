@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DAGSHUB_USERNAME: ${{ secrets.DAGSHUB_USERNAME }}
-      DAGSHUB_PAT: ${{ secrets.DAGSHUB_TOKEN }}
+      DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
 
     steps:
       - name: Checkout code
@@ -35,14 +35,14 @@ jobs:
         run: |
           dvc remote modify dagshub auth basic
           dvc remote modify dagshub user ${{ secrets.DAGSHUB_USERNAME }}
-          dvc remote modify dagshub password ${{ secrets.DAGSHUB_TOKEN }}
+          dvc remote modify dagshub password ${{ secrets.DAGSHUB_PAT }}
       - name: Pull DVC data
         run: |
           dvc pull --force
       - name: run dvc repro
         run: |
           dvc repro
-      - name: run streamlit app
-        run: |
-          streamlit run app/app.py
+      # - name: run streamlit app
+      #   run: |
+      #     streamlit run app/app.py
           
