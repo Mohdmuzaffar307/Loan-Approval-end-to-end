@@ -1,11 +1,14 @@
 # register model
 
 import json
-import mlflow
 import mlflow.sklearn
 from pathlib import Path
 import dagshub
 import os
+import os
+from dotenv import load_dotenv
+import mlflow
+load_dotenv()
 
 # *********
 # dagshub.init(repo_owner='Mohdmuzaffar307', repo_name='Loan-Approval-end-to-end', mlflow=True)

@@ -1,11 +1,17 @@
 import pandas as pd
 import joblib
-import mlflow
+
 from sklearn.metrics import accuracy_score,recall_score,f1_score,precision_score
 import dagshub
 import os
 import json
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+load_dotenv()
+import mlflow
+
+load_dotenv()
 
 
 # dagshub.init(

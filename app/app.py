@@ -4,6 +4,9 @@ import streamlit as st
 import mlflow
 import os
 import json
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
 dagshub_username = os.getenv("DAGSHUB_USERNAME")
