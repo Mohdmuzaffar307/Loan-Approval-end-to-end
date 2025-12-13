@@ -43,8 +43,8 @@ stages:
     - src/models/model_eval.py
     - data/interim/y_test.csv
     - data/interim/x_test_final.csv
-    outs:
-    - reports/experiment_info.json
+    # outs:
+    # - reports/experiment_info.json
     metrics:
     - reports/metrics.json
   register_model:
