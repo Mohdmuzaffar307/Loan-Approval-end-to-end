@@ -11,7 +11,7 @@ import os
 # dagshub.init(repo_owner='Mohdmuzaffar307', repo_name='Loan-Approval-end-to-end', mlflow=True)
 # mlflow.set_tracking_uri("https://dagshub.com/Mohdmuzaffar307/Loan-Approval-end-to-end.mlflow")
 dagshub_username = os.getenv("DAGSHUB_USERNAME")
-dagshub_token = os.getenv("DAGSHUB_TOKEN")
+dagshub_token = os.getenv("DAGSHUB_PAT")
 
 if not dagshub_username or not dagshub_token:
     raise EnvironmentError(
