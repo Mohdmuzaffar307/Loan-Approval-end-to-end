@@ -3,6 +3,7 @@ import joblib
 import streamlit as st
 import mlflow
 import os
+import json
 
 
 dagshub_username = os.getenv("DAGSHUB_USERNAME")
@@ -41,14 +42,32 @@ model = mlflow.pyfunc.load_model(model_uri)
 
 
 
+
+def load_experiment_info(path="reports/experiment_info.json"):
+    with open(path, "r") as file:
+        data = json.load(file)
+    
+    run_id = data.get("run_id")
+    model_path = data.get("model_path")
+    return run_id, model_path
+
+preprocessor_path = mlflow.artifacts.download_artifacts(
+    run_id=load_experiment_info(),
+    artifact_path="preprocessor/preprocessor.joblib"
+)
+
 #Streamlit app code
 
 st.sidebar.title("Loan Approval")
 st.sidebar.header("Parameters")
 st.sidebar.markdown("Adjust the parameters below:")
 
-preprocessor = joblib.load(open(r"artifacts\model\preprocessor.joblib", "rb"))
+# preprocessor = joblib.load(open(r"artifacts\model\preprocessor.joblib", "rb"))
 # model = joblib.load(open(r"artifacts\model\model.joblib", "rb"))
+
+
+
+preprocessor = joblib.load(preprocessor_path)
 
 
 st.title('Loan Approval App')

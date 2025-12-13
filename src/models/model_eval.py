@@ -102,6 +102,8 @@ def main():
         
         
          # Log metrics to MLflow
+        mlflow.log_artifact("artifacts/model/preprocessor.joblib", artifact_path="preprocessor")
+        print("Preprocessor logged successfully!")
         for metric_name, metric_value in metrics_dict.items():
             mlflow.log_metric(metric_name, metric_value)
         print('metrics logged to mlflow')
