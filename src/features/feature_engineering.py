@@ -5,6 +5,7 @@ from sklearn.compose import ColumnTransformer
 import joblib
 import os
 from pathlib import Path
+import sklearn
 
 def load_data(x_train_url :str,x_test_url :str)->tuple[pd.DataFrame,pd.DataFrame,pd.DataFrame,pd.DataFrame]:
     x_train=pd.read_csv(x_train_url)
@@ -37,6 +38,7 @@ def normalization(x_train:pd.DataFrame,x_test:pd.DataFrame)->tuple[pd.DataFrame,
     x_train_transformed=preprocessor.transform(x_train)
     x_test_transformed=preprocessor.transform(x_test)
     print("normalization")
+    print(sklearn.__version__)
     
     return x_train_transformed,x_test_transformed
 
