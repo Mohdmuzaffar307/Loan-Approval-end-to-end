@@ -11,8 +11,8 @@ jobs:
     env:
       DAGSHUB_USERNAME: ${{ secrets.DAGSHUB_USERNAME }}
       DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
-      username : ${{secrets.DOCKER_USER_NAME}}
-      password: ${{secrets.DOCKER_PAT}}
+      # username : ${{secrets.DOCKER_USER_NAME}}
+      # password: ${{secrets.DOCKER_PAT}}
 
     steps:
       - name: Checkout code
