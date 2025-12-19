@@ -11,8 +11,7 @@ jobs:
     env:
       DAGSHUB_USERNAME: ${{ secrets.DAGSHUB_USERNAME }}
       DAGSHUB_PAT: ${{ secrets.DAGSHUB_PAT }}
-      # username : ${{secrets.DOCKER_USER_NAME}}
-      # password: ${{secrets.DOCKER_PAT}}
+    
 
     steps:
       - name: Checkout code
@@ -56,4 +55,16 @@ jobs:
         run: |
           docker push ${{secrets.DOCKER_USER_NAME}}/loanapproval:latest
 
+      - name: Deploy to amazon ec2
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{secrets.EC2_HOST}}
+          username: ${{secrets.EC2_USERNAME}}
+          key: ${{secrets.EC2_SSH_KEY}}
+          script:
+              docker pull ${{secrets.DOCKER_USER_NAME}}/loanapproval:latest
+              docker stop my-app || true
+              docker rm my-app || true
+              docker run -p 80:8501 --name my-app -e DAGSHUB_USERNAME= ${{secrets.DAGSHUB_USERNAME}} \
+              -e DAGSHUB_PAT=${{secrets.DAGSHUB_PAT}} ${{secrets.DOCKER_USER_NAME}}/loanapproval:latest
           
