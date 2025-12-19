@@ -61,13 +61,13 @@ jobs:
           host: ${{secrets.EC2_HOST}}
           username: ${{secrets.EC2_USERNAME}}
           key: ${{secrets.EC2_SSH_KEY}}
-          script:
+          script: |
               docker pull ${{secrets.DOCKER_USER_NAME}}/loanapproval:latest
               docker stop my-app || true
               docker rm my-app || true
               docker run -d -p 80:8501 \
-              --name my-app \
-              -e DAGSHUB_USERNAME=${{ secrets.DAGSHUB_USERNAME }} \
-              -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} \
-              ${{secrets.DOCKER_USER_NAME}}/loanapproval:latest
+                --name my-app \
+                -e DAGSHUB_USERNAME=${{ secrets.DAGSHUB_USERNAME }} \
+                -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} \
+                ${{secrets.DOCKER_USER_NAME}}/loanapproval:latest
           
