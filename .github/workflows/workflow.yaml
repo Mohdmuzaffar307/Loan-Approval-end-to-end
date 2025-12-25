@@ -43,18 +43,33 @@ jobs:
       - name: run dvc repro
         run: |
           dvc repro
-      - name: Docker Login
-        uses: docker/login-action@v2
-        with:
-          username : ${{secrets.DOCKER_USER_NAME}}
-          password : ${{secrets.DOCKER_PAT}}
-      - name: Docker build image
-        run: |
-          docker build -t ${{secrets.DOCKER_USER_NAME}}/loan:v1 .
-      - name: push docker image to docker hub
-        run: |
-          docker push ${{secrets.DOCKER_USER_NAME}}/loan:v1
+      # - name: Docker Login
+      #   uses: docker/login-action@v2
+      #   with:
+      #     username : ${{secrets.DOCKER_USER_NAME}}
+      #     password : ${{secrets.DOCKER_PAT}}
+      # - name: Docker build image
+      #   run: |
+      #     docker build -t ${{secrets.DOCKER_USER_NAME}}/loan:v1 .
+      # - name: push docker image to docker hub
+      #   run: |
+      #     docker push ${{secrets.DOCKER_USER_NAME}}/loan:v1
+      - name: login aws ECR
+        run : |
+            aws configure set aws_secret_access_key_id ${{secrets.AWS_SECRET_ID}}
+            aws configure set aws_secret_access_key ${{secrets.AWS_SCRET_KEY}}
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 534278687280.dkr.ecr.us-east-1.amazonaws.com
+      - name: Build docker image 
+        run : |
+            docker build -t loan .
+      - name: Tag docker image
+        run : |
+            docker tag loan:latest 534278687280.dkr.ecr.us-east-1.amazonaws.com/loan:latest
+      - name: Push docker image to ecr
+        run : |
+            docker push 534278687280.dkr.ecr.us-east-1.amazonaws.com/loan:latest
 
+            
       - name: Deploy to amazon ec2
         uses: appleboy/ssh-action@v0.1.5
         with:
