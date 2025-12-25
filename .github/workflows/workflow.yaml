@@ -56,8 +56,8 @@ jobs:
       #     docker push ${{secrets.DOCKER_USER_NAME}}/loan:v1
       - name: login aws ECR
         run : |
-            aws configure set aws_secret_access_key_id ${{secrets.AWS_SECRET_ID}}
-            aws configure set aws_secret_access_key ${{secrets.AWS_SCRET_KEY}}
+            aws configure set aws_access_key_id ${{secrets.AWS_SECRET_ID}}
+            aws configure set aws_secret_access_key  ${{secrets.AWS_SCRET_KEY}}
             aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 534278687280.dkr.ecr.us-east-1.amazonaws.com
       - name: Build docker image 
         run : |
@@ -69,7 +69,7 @@ jobs:
         run : |
             docker push 534278687280.dkr.ecr.us-east-1.amazonaws.com/loan:latest
 
-            
+
       - name: Deploy to amazon ec2
         uses: appleboy/ssh-action@v0.1.5
         with:
