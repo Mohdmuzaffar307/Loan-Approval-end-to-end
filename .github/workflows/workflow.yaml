@@ -50,10 +50,10 @@ jobs:
           password : ${{secrets.DOCKER_PAT}}
       - name: Docker build image
         run: |
-          docker build -t ${{secrets.DOCKER_USER_NAME}}/loanapproval:latest .
+          docker build -t ${{secrets.DOCKER_USER_NAME}}/loan:v1 .
       - name: push docker image to docker hub
         run: |
-          docker push ${{secrets.DOCKER_USER_NAME}}/loanapproval:latest
+          docker push ${{secrets.DOCKER_USER_NAME}}/loan:v1
 
       - name: Deploy to amazon ec2
         uses: appleboy/ssh-action@v0.1.5
@@ -62,12 +62,12 @@ jobs:
           username: ${{secrets.EC2_USERNAME}}
           key: ${{secrets.EC2_SSH_KEY}}
           script: |
-              docker pull ${{secrets.DOCKER_USER_NAME}}/loanapproval:latest
+              docker pull ${{secrets.DOCKER_USER_NAME}}/loan:v1
               docker stop my-app || true
               docker rm my-app || true
               docker run -d -p 80:8501 \
                 --name my-app \
                 -e DAGSHUB_USERNAME=${{ secrets.DAGSHUB_USERNAME }} \
                 -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} \
-                ${{secrets.DOCKER_USER_NAME}}/loanapproval:latest
+                ${{secrets.DOCKER_USER_NAME}}/loan:v1
           
