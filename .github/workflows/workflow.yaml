@@ -95,12 +95,12 @@ jobs:
           script: |
               aws configure set aws_access_key_id ${{secrets.AWS_SECRET_ID}}
               aws configure set aws_secret_access_key  ${{secrets.AWS_SCRET_KEY}}
+              aws configure set default.region us-east-1
               aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 534278687280.dkr.ecr.us-east-1.amazonaws.com
               docker pull 534278687280.dkr.ecr.us-east-1.amazonaws.com/loan:latest
               docker stop my-app || true
               docker rm my-app || true
               docker run -p 80:8501 --name my-app -e DAGSHUB_USERNAME=${{ secrets.DAGSHUB_USERNAME }} -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} 534278687280.dkr.ecr.us-east-1.amazonaws.com/loan:latest
-           
                 
    
               
