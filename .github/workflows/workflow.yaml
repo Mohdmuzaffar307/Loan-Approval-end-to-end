@@ -70,6 +70,22 @@ jobs:
             docker push 534278687280.dkr.ecr.us-east-1.amazonaws.com/loan:latest
 
 
+      # - name: Deploy to amazon ec2
+      #   uses: appleboy/ssh-action@v0.1.5
+      #   with:
+      #     host: ${{secrets.EC2_HOST}}
+      #     username: ${{secrets.EC2_USERNAME}}
+      #     key: ${{secrets.EC2_SSH_KEY}}
+      #     script: |
+      #         docker pull ${{secrets.DOCKER_USER_NAME}}/loan:v1
+      #         docker stop my-app || true
+      #         docker rm my-app || true
+      #         docker run -d -p 80:8501 \
+      #           --name my-app \
+      #           -e DAGSHUB_USERNAME=${{ secrets.DAGSHUB_USERNAME }} \
+      #           -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} \
+      #           ${{secrets.DOCKER_USER_NAME}}/loan:v1
+
       - name: Deploy to amazon ec2
         uses: appleboy/ssh-action@v0.1.5
         with:
@@ -77,12 +93,19 @@ jobs:
           username: ${{secrets.EC2_USERNAME}}
           key: ${{secrets.EC2_SSH_KEY}}
           script: |
-              docker pull ${{secrets.DOCKER_USER_NAME}}/loan:v1
+              aws configure set aws_access_key_id ${{secrets.AWS_SECRET_ID}}
+              aws configure set aws_secret_access_key  ${{secrets.AWS_SCRET_KEY}}
+              aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 534278687280.dkr.ecr.us-east-1.amazonaws.com
+              docker pull 534278687280.dkr.ecr.us-east-1.amazonaws.com/loan:latest
               docker stop my-app || true
               docker rm my-app || true
-              docker run -d -p 80:8501 \
+              docker run -p 80:8501 \
                 --name my-app \
                 -e DAGSHUB_USERNAME=${{ secrets.DAGSHUB_USERNAME }} \
                 -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} \
-                ${{secrets.DOCKER_USER_NAME}}/loan:v1
+                ${{secrets.DOCKER_USER_NAME}}/loan:latest
+                
+   
+              
+      
           
