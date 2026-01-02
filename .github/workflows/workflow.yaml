@@ -100,6 +100,6 @@ jobs:
               docker pull 534278687280.dkr.ecr.us-east-1.amazonaws.com/loan-ec2-ecs:latest
               docker stop my-app || true
               docker rm my-app || true
-              docker run -p 80:8501 --name my-app -e DAGSHUB_USERNAME=${{ secrets.DAGSHUB_USERNAME }} -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} 534278687280.dkr.ecr.us-east-1.amazonaws.com/loan-ec2-ecs:latest
+              docker run -d --restart unless-stopped -p 80:8501 --name my-app -e DAGSHUB_USERNAME=${{ secrets.DAGSHUB_USERNAME }} -e DAGSHUB_PAT=${{ secrets.DAGSHUB_PAT }} 534278687280.dkr.ecr.us-east-1.amazonaws.com/loan-ec2-ecs:latest
           
 
