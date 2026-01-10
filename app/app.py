@@ -57,7 +57,7 @@ def load_model_and_preprocessor():
 
 #Streamlit app code
 model,preprocessor=load_model_and_preprocessor()
-st.sidebar.title("Loan Approval")
+st.sidebar.title("Loan Approval APP ")
 st.sidebar.header("Parameters")
 st.sidebar.markdown("Adjust the parameters below:")
 
