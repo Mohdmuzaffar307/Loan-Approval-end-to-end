@@ -33,7 +33,7 @@ repo_name = "Loan-Approval-end-to-end"
 mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 
 
-# @st.cache_resource
+@st.cache_resource
 def load_model_and_preprocessor():
     # Load experiment info
     with open(REPORT_PATH) as file:
