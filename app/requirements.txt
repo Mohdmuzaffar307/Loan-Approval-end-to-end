@@ -16,4 +16,4 @@ scipy==1.11.4
 
 # App
 streamlit==1.51.0
-pathspec==0.10.3
+# pathspec==0.10.3

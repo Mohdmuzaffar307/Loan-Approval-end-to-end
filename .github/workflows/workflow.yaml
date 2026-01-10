@@ -37,6 +37,11 @@ jobs:
           dvc remote modify dagshub auth basic
           dvc remote modify dagshub user ${{ secrets.DAGSHUB_USERNAME }}
           dvc remote modify dagshub password ${{ secrets.DAGSHUB_PAT }}
+      - name: Fix DVC dependency
+        run: |
+          pip uninstall -y pathspec
+          pip install pathspec==0.10.3
+
       - name: Pull DVC data
         run: |
           dvc pull --force
